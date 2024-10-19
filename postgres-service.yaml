@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: db  # This matches the host in your Flask app
+spec:
+  selector:
+    app: db  # This should match the labels in your PostgreSQL deployment
+  ports:
+    - protocol: TCP
+      port: 5432
+      targetPort: 5432

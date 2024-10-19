@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: postgres
+  name: db  # Change this from 'postgres' to 'db'
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: postgres
+      app: db  # Update the label to match the new name
   template:
     metadata:
       labels:
-        app: postgres
+        app: db  # Update the label to match the new name
     spec:
       containers:
       - name: postgres
