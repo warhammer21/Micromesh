@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flask-api
+  template:
+    metadata:
+      labels:
+        app: flask-api
+    spec:
+      containers:
+      - name: flask-api
+        image: warhammer21/micromesh:flask-api-mesh-v1
+        ports:
+        - containerPort: 8080
+        env:
+        - name: DATABASE_HOST
+          value: "postgres-service"
